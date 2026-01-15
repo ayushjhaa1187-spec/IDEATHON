@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision Aids - Senior Shop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <style> body { font-family: 'Source Sans 3', sans-serif; background-color: #F8FAFC; } </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <a href="#main-content" class="skip-link">Skip to Products</a>
+
+    <header class="bg-white shadow-md sticky top-0 z-50" role="banner">
+        <div class="bg-gray-800 text-white p-2 text-center text-sm flex justify-center gap-4">
+            <button onclick="toggleTextSize()" class="hover:text-yellow-400 font-bold underline">A+ Text Size</button>
+            <span class="text-gray-600">|</span>
+            <button onclick="toggleContrast()" class="hover:text-yellow-400 font-bold underline">High Contrast</button>
+        </div>
+        <div class="container mx-auto p-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3" aria-label="Back to Home">
+                <div class="w-10 h-10 bg-[#208090] rounded-full flex items-center justify-center text-white text-xl font-bold">S</div>
+                <span class="text-2xl font-bold text-[#208090]">Senior Shop</span>
+            </a>
+            <a href="cart.html" class="flex items-center gap-2 bg-[#208090] text-white px-5 py-3 rounded-lg font-bold shadow-md" aria-label="Cart">
+                <span aria-hidden="true">🛒</span> <span class="cart-count-display">Cart (0)</span>
+            </a>
+        </div>
+    </header>
+
+    <main id="main-content" class="container mx-auto px-4 py-8 flex-grow" role="main">
+        <div class="mb-6">
+            <a href="index.html" class="inline-flex items-center gap-2 text-lg font-bold text-gray-600 hover:text-[#208090] transition">
+                <span>←</span> Back to Home
+            </a>
+        </div>
+
+        <h1 class="text-3xl font-bold mb-8 text-gray-800 border-l-8 border-[#208090] pl-4">Vision Aids</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <article class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition">
+                <img src="https://placehold.co/400x300/208090/FFFFFF?text=Magnifier" alt="Digital Magnifier with screen" class="w-full h-48 object-cover">
+                <div class="p-5">
+                    <h2 class="text-xl font-bold mb-2 text-gray-800">Digital Magnifier</h2>
+                    <p class="text-gray-600 text-sm mb-4">Zoom text up to 10x with high contrast screen.</p>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-2xl font-bold text-[#208090]">$89.99</span>
+                        <button onclick="addToCart('Digital Magnifier', 89.99, 'https://placehold.co/100x100/208090/FFFFFF?text=Zoom')" class="bg-[#208090] text-white px-4 py-2 rounded-lg font-bold hover:bg-[#165E6A]" aria-label="Add Magnifier to Cart">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition">
+                <img src="https://placehold.co/400x300/333333/FFFFFF?text=Watch" alt="Talking Watch with button" class="w-full h-48 object-cover">
+                <div class="p-5">
+                    <h2 class="text-xl font-bold mb-2 text-gray-800">Talking Watch</h2>
+                    <p class="text-gray-600 text-sm mb-4">Press a button to hear the time loudly.</p>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-2xl font-bold text-[#208090]">$19.99</span>
+                        <button onclick="addToCart('Talking Watch', 19.99, 'https://placehold.co/100x100/333333/FFFFFF?text=Watch')" class="bg-[#208090] text-white px-4 py-2 rounded-lg font-bold hover:bg-[#165E6A]" aria-label="Add Talking Watch to Cart">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
