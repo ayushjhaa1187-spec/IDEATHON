@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Easy Phones - Senior Shop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Source Sans 3', sans-serif; background: #F8FAFC; }
+        body.high-contrast { background: #000 !important; color: #FFD700 !important; }
+        *:focus-visible { outline: 4px solid #F59E0B !important; }
+        .skip-link { position: absolute; top: -999px; left: 0; background: #208090; color: white; padding: 15px; z-index: 50; }
+        .skip-link:focus { top: 0; }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+    
+    <a href="#main-content" class="skip-link">Skip to Products</a>
+
+    <div class="bg-gray-900 text-white py-2 px-4 flex justify-end items-center gap-4 text-sm font-bold">
+        <span class="text-gray-400">Accessibility:</span>
+        <button onclick="toggleTextSize('small')">A-</button>
+        <button onclick="toggleTextSize('reset')">Reset</button>
+        <button onclick="toggleTextSize('large')">A+</button>
+        <button onclick="toggleContrast()" class="bg-yellow-500 text-black px-2 py-1 rounded">High Contrast</button>
+    </div>
+
+    <header class="bg-white shadow p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-[#208090] rounded-full flex items-center justify-center text-white text-xl font-bold">S</div>
+                <span class="text-2xl font-bold text-[#208090]">Senior Shop</span>
+            </a>
+            <a href="cart.html" class="bg-[#208090] text-white px-6 py-2 rounded-lg font-bold hover:bg-[#165E6A]">
+                🛒 Cart (<span class="cart-count">0</span>)
+            </a>
+        </div>
+    </header>
+
+    <main id="main-content" class="container mx-auto px-4 py-8 flex-grow">
+        <h1 class="text-3xl font-bold mb-8 border-l-8 border-[#208090] pl-4">Easy-to-Use Mobile Phones</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <div class="bg-white rounded-xl shadow overflow-hidden border border-gray-200">
+                <img src="https://placehold.co/400x250/208090/FFFFFF?text=Jitterbug+Flip" alt="Teal phone" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h2 class="font-bold text-xl">Jitterbug Flip 2</h2>
+                    <p class="text-sm text-gray-600 mb-4">Large buttons, loud speaker.</p>
+                    <div class="text-2xl font-bold text-[#208090] mb-4">$99.99</div>
+                    <button onclick="addToCart('Jitterbug Flip 2', 99.99, 'https://placehold.co/100/208090/FFF')" class="w-full bg-[#208090] text-white py-3 rounded font-bold hover:bg-[#165E6A]">
+                        + Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow overflow-hidden border border-gray-200">
+                <img src="https://placehold.co/400x250/333333/FFFFFF?text=Snapfon+ez4G" alt="Black phone" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h2 class="font-bold text-xl">Snapfon ez4G</h2>
+                    <p class="text-sm text-gray-600 mb-4">High contrast screen.</p>
+                    <div class="text-2xl font-bold text-[#208090] mb-4">$79.99</div>
+                    <button onclick="addToCart('Snapfon ez4G', 79.99, 'https://placehold.co/100/333/FFF')" class="w-full bg-[#208090] text-white py-3 rounded font-bold hover:bg-[#165E6A]">
+                        + Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow overflow-hidden border border-gray-200">
+                <img src="https://placehold.co/400x250/E5E7EB/333333?text=Nokia+2780" alt="Grey phone" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h2 class="font-bold text-xl">Nokia 2780</h2>
+                    <p class="text-sm text-gray-600 mb-4">Classic flip with FM radio.</p>
+                    <div class="text-2xl font-bold text-[#208090] mb-4">$69.99</div>
+                    <button onclick="addToCart('Nokia 2780', 69.99, 'https://placehold.co/100/DDD/333')" class="w-full bg-[#208090] text-white py-3 rounded font-bold hover:bg-[#165E6A]">
+                        + Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow overflow-hidden border border-gray-200">
+                <img src="https://placehold.co/400x250/EF4444/FFFFFF?text=RAZ+Memory" alt="Red phone" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h2 class="font-bold text-xl">RAZ Memory</h2>
+                    <p class="text-sm text-gray-600 mb-4">One-touch photo dialing.</p>
+                    <div class="text-2xl font-bold text-[#208090] mb-4">$309.00</div>
+                    <button onclick="addToCart('RAZ Memory', 309.00, 'https://placehold.co/100/F00/FFF')" class="w-full bg-[#208090] text-white py-3 rounded font-bold hover:bg-[#165E6A]">
+                        + Add to Cart
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white pt-12 pb-6 mt-12 text-center">
+        <p>© 2026 Senior Shop.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
