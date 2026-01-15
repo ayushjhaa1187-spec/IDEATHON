@@ -35,6 +35,8 @@
         .category-card:hover { transform: translateY(-10px) scale(1.05); box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
         button:hover { animation: pulse 0.6s ease-in-out infinite; }
         h1 { animation: slideIn 1s ease-out; }
+                /* Bottom Navigation Spacing */
+        body { padding-bottom: 80px; }
     </style>
 </head>
 <body class="flex flex-col min-h-screen">
@@ -144,9 +146,47 @@
             </div>
         </div>
         <div class="text-center text-gray-600 mt-12 border-t border-gray-800 pt-8">
-                            &copy; 2026 Senior Shop - IIT Madras Ideathon Project | Crafted with ❤️ by Ayush Kumar Jha | Accessibility-First E-Commerce Platform
-        </div>
+            &copy; 2026 Senior Shop - Enable: IIT Madras Accessibility Ideathon | Independently Developed by Ayush Kumar Jha | Empowering Inclusive Digital Experiences        </div>
     </footer>
+
+
+        <!-- Bottom Navigation Bar -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t-4 border-[#208090] z-50" role="navigation" aria-label="Bottom Navigation">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-5 gap-0">
+                <!-- Home Button -->
+                <a href="index.html" class="flex flex-col items-center justify-center py-3 px-2 hover:bg-[#E0F2F1] transition-colors" aria-label="Go to Home">
+                    <span class="text-2xl mb-1" aria-hidden="true">🏠</span>
+                    <span class="text-xs font-bold text-gray-700">Home</span>
+                </a>
+                
+                <!-- Quick Browse Button -->
+                <button onclick="document.getElementById('main-content').scrollIntoView({behavior: 'smooth'})" class="flex flex-col items-center justify-center py-3 px-2 hover:bg-[#E0F2F1] transition-colors" aria-label="Quick Browse Categories">
+                    <span class="text-2xl mb-1" aria-hidden="true">🔍</span>
+                    <span class="text-xs font-bold text-gray-700">Browse</span>
+                </button>
+                
+                <!-- Cart Button -->
+                <a href="cart.html" class="flex flex-col items-center justify-center py-3 px-2 hover:bg-[#E0F2F1] transition-colors relative" aria-label="View Cart">
+                    <span class="text-2xl mb-1" aria-hidden="true">🛒</span>
+                    <span class="text-xs font-bold text-gray-700">Cart</span>
+                    <span class="cart-count absolute top-1 right-4 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold" aria-live="polite">0</span>
+                </a>
+                
+                <!-- Help Button -->
+                <a href="#" onclick="alert('Help: Call us at 1-800-555-0199 or email help@seniorshop.com'); return false;" class="flex flex-col items-center justify-center py-3 px-2 hover:bg-[#E0F2F1] transition-colors" aria-label="Get Help and Support">
+                    <span class="text-2xl mb-1" aria-hidden="true">❓</span>
+                    <span class="text-xs font-bold text-gray-700">Help</span>
+                </a>
+                
+                <!-- Track Order Button -->
+                <a href="order-tracking.html" class="flex flex-col items-center justify-center py-3 px-2 hover:bg-[#E0F2F1] transition-colors" aria-label="Track Your Order">
+                    <span class="text-2xl mb-1" aria-hidden="true">📦</span>
+                    <span class="text-xs font-bold text-gray-700">Track</span>
+                </a>
+            </div>
+        </div>
+    </nav>
 
     <script src="script.js"></script>
 </body>
