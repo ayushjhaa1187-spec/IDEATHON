@@ -217,6 +217,111 @@
         </div>
     </nav>
 
+        <!-- Enhanced Accessibility JavaScript -->
+    <script>
+    // Keyboard Shortcuts Handler
+    document.addEventListener('keydown', function(e) {
+        // Ignore if user is typing in input
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+        
+        // S = Focus Search
+        if (e.key === 's' || e.key === 'S') {
+            e.preventDefault();
+            document.querySelector('[aria-label="Search products"]').focus();
+            showNotification('Search box focused. Press Tab to navigate.');
+        }
+        // H = Home
+        if (e.key === 'h' || e.key === 'H') {
+            e.preventDefault();
+            window.location.href = 'index.html';
+        }
+        // C = Cart
+        if (e.key === 'c' || e.key === 'C') {
+            e.preventDefault();
+            window.location.href = 'cart.html';
+        }
+        // ? = Show keyboard shortcuts
+        if (e.key === '?') {
+            e.preventDefault();
+            showKeyboardHelp();
+        }
+    });
+    
+    // Visual Notification System for Hearing Impaired
+    function showNotification(message, duration = 3000) {
+        const notification = document.createElement('div');
+        notification.setAttribute('role', 'alert');
+        notification.setAttribute('aria-live', 'assertive');
+        notification.className = 'fixed top-20 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-black px-8 py-4 rounded-lg shadow-2xl text-xl font-bold z-50 animate-bounce';
+        notification.textContent = '⚠️ ' + message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.classList.add('opacity-0', 'transition-opacity');
+            setTimeout(() => notification.remove(), 500);
+        }, duration);
+    }
+    
+    // Keyboard Shortcuts Help Overlay
+    function showKeyboardHelp() {
+        const existing = document.getElementById('keyboard-help');
+        if (existing) {
+            existing.remove();
+            return;
+        }
+        
+        const overlay = document.createElement('div');
+        overlay.id = 'keyboard-help';
+        overlay.className = 'fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50';
+        overlay.innerHTML = `
+            <div class="bg-white rounded-xl p-8 max-w-2xl" role="dialog" aria-labelledby="help-title">
+                <h2 id="help-title" class="text-3xl font-bold mb-6 text-[#208090]">⌨️ Keyboard Shortcuts</h2>
+                <div class="space-y-4 text-lg">
+                    <div class="flex justify-between"><span class="font-bold">S</span><span>Focus Search Box</span></div>
+                    <div class="flex justify-between"><span class="font-bold">H</span><span>Go to Home</span></div>
+                    <div class="flex justify-between"><span class="font-bold">C</span><span>View Cart</span></div>
+                    <div class="flex justify-between"><span class="font-bold">Tab</span><span>Navigate Forward</span></div>
+                    <div class="flex justify-between"><span class="font-bold">Shift+Tab</span><span>Navigate Backward</span></div>
+                    <div class="flex justify-between"><span class="font-bold">?</span><span>Show/Hide This Help</span></div>
+                </div>
+                <button onclick="document.getElementById('keyboard-help').remove()" class="mt-6 bg-[#208090] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#165E6A] w-full">Close (or press ? again)</button>
+            </div>
+        `;
+        document.body.appendChild(overlay);
+        overlay.focus();
+    }
+    
+    // ARIA Live Region Updates for Dynamic Content
+    window.updateCartCount = function(count) {
+        const cartCounts = document.querySelectorAll('.cart-count');
+        cartCounts.forEach(el => el.textContent = count);
+        showNotification(`Cart updated! You now have ${count} items.`);
+    };
+    
+    // Form Validation with Clear Error Messages
+    const searchInput = document.querySelector('[aria-label="Search products"]');
+    if (searchInput) {
+        searchInput.addEventListener('blur', function() {
+            if (this.value.length > 0 && this.value.length < 3) {
+                showNotification('Please enter at least 3 characters to search');
+                this.setAttribute('aria-invalid', 'true');
+            } else {
+                this.setAttribute('aria-invalid', 'false');
+            }
+        });
+    }
+    
+    // Announce page loads for screen readers
+    window.addEventListener('load', function() {
+        const announcement = document.createElement('div');
+        announcement.setAttribute('role', 'status');
+        announcement.setAttribute('aria-live', 'polite');
+        announcement.className = 'sr-only';
+        announcement.textContent = 'Senior Shop homepage loaded. Press S to search, H for home, C for cart, or ? for keyboard shortcuts.';
+        document.body.appendChild(announcement);
+    });
+    </script>
+
     <script src="script.js"></script>
 </body>
 </html>
