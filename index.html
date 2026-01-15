@@ -19,16 +19,18 @@
     </style>
 </head>
 <body class="flex flex-col min-h-screen">
-
     <a href="#main-content" class="skip-link">Skip to Content</a>
 
     <div class="bg-gray-900 text-white py-2 px-4 flex justify-end items-center gap-4 text-sm font-bold" role="region" aria-label="Accessibility Tools">
         <span class="uppercase tracking-wider text-gray-400">Accessibility Tools:</span>
-        <button onclick="toggleTextSize('small')" class="hover:text-yellow-400">A-</button>
-        <button onclick="toggleTextSize('reset')" class="hover:text-yellow-400">Reset</button>
-        <button onclick="toggleTextSize('large')" class="hover:text-yellow-400">A+</button>
-        <button onclick="toggleContrast()" class="bg-yellow-500 text-black px-3 py-1 rounded hover:bg-yellow-400 flex items-center gap-1">
+        <button onclick="toggleTextSize('small')" class="hover:text-yellow-400" aria-label="Decrease text size">A-</button>
+        <button onclick="toggleTextSize('reset')" class="hover:text-yellow-400" aria-label="Reset text size">Reset</button>
+        <button onclick="toggleTextSize('large')" class="hover:text-yellow-400" aria-label="Increase text size">A+</button>
+        <button onclick="toggleContrast()" class="bg-yellow-500 text-black px-3 py-1 rounded hover:bg-yellow-400 flex items-center gap-1" aria-label="Toggle high contrast mode">
             <span aria-hidden="true">👁️</span> High Contrast
+        </button>
+        <button onclick="readPage()" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-400" aria-label="Read this page aloud">
+            🔊 Read Page
         </button>
     </div>
 
@@ -38,8 +40,10 @@
                 <div class="w-10 h-10 bg-[#208090] rounded-full flex items-center justify-center text-white text-xl font-bold">S</div>
                 <span class="text-3xl font-bold text-[#208090]">Senior Shop</span>
             </a>
-            <div class="flex gap-4">
-                <button class="bg-gray-100 px-4 py-2 rounded-lg font-bold hover:bg-gray-200">🔊 Voice</button>
+            <div class="flex gap-4 items-center">
+                <a href="order-tracking.html" class="text-[#208090] font-bold hover:underline flex items-center gap-1">
+                    📦 Order Updates
+                </a>
                 <a href="cart.html" class="bg-[#208090] text-white px-6 py-2 rounded-lg font-bold hover:bg-[#165E6A] flex items-center gap-2">
                     🛒 Cart (<span class="cart-count">0</span>)
                 </a>
@@ -53,8 +57,8 @@
             <p class="text-xl text-gray-700 mb-8">Simple, reliable products designed for your comfort and safety.</p>
             
             <div class="max-w-2xl mx-auto flex gap-0 shadow-lg rounded-full overflow-hidden">
-                <input type="text" placeholder="What are you looking for today?" class="w-full px-6 py-4 text-xl border-none outline-none">
-                <button class="bg-[#208090] text-white px-8 py-4 text-xl font-bold hover:bg-[#165E6A]">Search</button>
+                <input type="text" placeholder="What are you looking for today?" class="w-full px-6 py-4 text-xl border-none outline-none" aria-label="Search products">
+                <button class="bg-[#208090] text-white px-8 py-4 text-xl font-bold hover:bg-[#165E6A]" aria-label="Search">Search</button>
             </div>
         </section>
 
@@ -86,7 +90,7 @@
                     <div class="font-bold text-xl">Bathroom</div>
                 </a>
                 <a href="comfort.html" class="bg-white p-8 rounded-xl shadow border hover:border-[#208090] text-center transition">
-                    <div class="text-5xl mb-4">🛋️</div>
+                    <div class="text-5xl mb-4">🛍️</div>
                     <div class="font-bold text-xl">Comfort</div>
                 </a>
                 <a href="sleep.html" class="bg-white p-8 rounded-xl shadow border hover:border-[#208090] text-center transition">
@@ -110,7 +114,7 @@
                 <h3 class="font-bold text-[#208090] mb-4">Helpful Links</h3>
                 <ul class="space-y-2 text-gray-300">
                     <li><a href="shop.html" class="hover:text-white">Easy Mobile Phones</a></li>
-                    <li><a href="orders.html" class="hover:text-white">Track Order</a></li>
+                    <li><a href="order-tracking.html" class="hover:text-white">Track Orders</a></li>
                     <li><a href="#" class="hover:text-white">Accessibility Statement</a></li>
                 </ul>
             </div>
@@ -121,7 +125,7 @@
             </div>
         </div>
         <div class="text-center text-gray-600 mt-12 border-t border-gray-800 pt-8">
-            © 2026 Senior Shop. All rights reserved.
+            &copy; 2025 Senior Shop - IIT Madras Ideathon Project
         </div>
     </footer>
 
