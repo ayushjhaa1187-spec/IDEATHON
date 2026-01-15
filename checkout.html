@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Senior Shop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <style> body { font-family: 'Source Sans 3', sans-serif; background-color: #F8FAFB; } .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; } </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Skip to main content -->
+    <a href="#main-content" class="sr-only focus:not-sr-only">Skip to main content</a>
+
+    <!-- ACCESSIBILITY BAR -->
+    <div class="bg-gray-800 text-white p-2 text-center text-sm flex justify-end gap-4 px-6">
+        <button onclick="toggleTextSize('large')" class="hover:text-yellow-400 font-bold underline" aria-label="Increase text size">A+ Text Size</button>
+        <button onclick="toggleTextSize('reset')" class="hover:text-yellow-400 font-bold underline" aria-label="Reset text size">A= Reset</button>
+        <button onclick="toggleContrast()" class="hover:text-yellow-400 font-bold underline" aria-label="Toggle high contrast mode">High Contrast</button>
+        <button onclick="readPage()" class="hover:text-yellow-400 font-bold underline" aria-label="Read page aloud"><span aria-hidden="true">🔊</span> Read Page</button>
+    </div>
+
+    <!-- HEADER -->
+    <header class="bg-white shadow-md sticky top-0 z-50" role="banner">
+        <div class="flex justify-between items-center p-2 px-6">
+            <div class="flex items-center gap-2">
+                <div class="bg-[#208090] text-white rounded-full h-10 w-10 flex items-center justify-center font-bold text-xl" aria-hidden="true">S</div>
+                <a href="index.html" class="text-2xl font-bold text-[#208090]">Senior Shop</a>
+            </div>
+            <nav class="flex items-center gap-6" role="navigation" aria-label="Main navigation">
+                <a href="cart.html" class="hover:text-yellow-400 font-bold" aria-label="Shopping cart">Cart ( <span class="cart-count">0</span> )</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main id="main-content" class="container mx-auto px-4 py-10 flex-grow" role="main" tabindex="-1">
+        <div class="max-w-2xl mx-auto">
+            <h1 class="text-4xl font-bold text-center mb-8 text-[#208090]">Checkout - Delivery Information</h1>
+            
+            <div class="bg-white p-8 rounded-2xl shadow-lg">
+                <form onsubmit="proceedToPayment(event)" id="checkout-form">
+                    <div class="mb-6">
+                        <label for="name" class="block text-xl font-bold mb-2">Full Name <span class="text-red-600" aria-label="required">*</span></label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            required 
+                            class="w-full border-2 border-gray-300 p-3 rounded focus:border-[#208090] focus:outline-none focus:ring-2 focus:ring-[#208090] text-lg" 
+                            placeholder="e.g. John Doe"
+                            aria-required="true"
+                            aria-describedby="name-help"
+                        >
+                        <p id="name-help" class="text-sm text-gray-600 mt-1">Enter your full name for delivery</p>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="address" class="block text-xl font-bold mb-2">Delivery Address <span class="text-red-600" aria-label="required">*</span></label>
+                        <textarea 
+                            id="address" 
+                            name="address" 
+                            required 
+                            rows="3" 
+                            class="w-full border-2 border-gray-300 p-3 rounded focus:border-[#208090] focus:outline-none focus:ring-2 focus:ring-[#208090] text-lg" 
+                            placeholder="Street address, city, state, pincode"
+                            aria-required="true"
+                            aria-describedby="address-help"
+                        ></textarea>
+                        <p id="address-help" class="text-sm text-gray-600 mt-1">Complete delivery address including pincode</p>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="phone" class="block text-xl font-bold mb-2">Phone Number <span class="text-red-600" aria-label="required">*</span></label>
+                        <input 
+                            type="tel" 
+                            id="phone" 
+                            name="phone" 
+                            required 
+                            pattern="[0-9]{10}" 
+                            class="w-full border-2 border-gray-300 p-3 rounded focus:border-[#208090] focus:outline-none focus:ring-2 focus:ring-[#208090] text-lg" 
+                            placeholder="10-digit mobile number"
+                            aria-required="true"
+                            aria-describedby="phone-help"
+                        >
+                        <p id="phone-help" class="text-sm text-gray-600 mt-1">10-digit mobile number for delivery updates</p>
+                    </div>
+
+                    <div class="flex gap-4 mt-8">
+                        <a href="cart.html" class="flex-1 text-center bg-gray-300 text-gray-800 py-4 px-6 rounded-xl font-bold text-xl hover:bg-gray-400 transition focus:outline-none focus:ring-4 focus:ring-gray-400" aria-label="Go back to cart">
+                            ← Back to Cart
+                        </a>
+                        <button type="submit" class="flex-1 bg-[#208090] text-white py-4 px-6 rounded-xl font-bold text-xl hover:bg-[#1a6675] transition shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300" aria-label="Proceed to payment">
+                            Proceed to Payment →
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="mt-6 bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                <p class="text-gray-700">
+                    <strong>Secure Checkout:</strong> Your information is encrypted and secure. All fields marked with <span class="text-red-600">*</span> are required.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-800 text-white mt-auto" role="contentinfo">
+        <div class="container mx-auto px-6 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="bg-[#208090] text-white rounded-full h-10 w-10 flex items-center justify-center font-bold text-xl" aria-hidden="true">S</div>
+                        <h3 class="text-xl font-bold">Senior Shop</h3>
+                    </div>
+                    <p class="text-gray-300">Empowering independent living with simple, accessible technology.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-3">Helpful Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white focus:text-white focus:outline-none focus:underline">Home</a></li>
+                        <li><a href="shop.html" class="text-gray-300 hover:text-white focus:text-white focus:outline-none focus:underline">Shop</a></li>
+                        <li><a href="orders.html" class="text-gray-300 hover:text-white focus:text-white focus:outline-none focus:underline">Track Order</a></li>
+                        <li><a href="tracking.html" class="text-gray-300 hover:text-white focus:text-white focus:outline-none focus:underline">Order Status</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-3">Contact Us</h4>
+                    <p class="text-gray-300"><a href="tel:1-800-555-0199" class="hover:text-white focus:text-white focus:outline-none focus:underline">1-800-555-0199</a></p>
+                    <p class="text-gray-300"><a href="mailto:help@seniorshop.com" class="hover:text-white focus:text-white focus:outline-none focus:underline">help@seniorshop.com</a></p>
+                    <p class="text-gray-300 mt-4">Available 24/7 for assistance</p>
+                </div>
+            </div>
+            <div class="text-center mt-8 pt-6 border-t border-gray-700">
+                <p class="text-gray-400">© 2026 Senior Shop. Accessible shopping for everyone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
