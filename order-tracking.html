@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Tracking - Senior Shop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Source Sans 3', sans-serif; background: #F8FAFC; }
+        *:focus-visible{outline:4px solid #F59E0B!important}
+        body.high-contrast{background:#000!important;color:#FFD700!important}
+        .order-card { transition: all 0.3s ease; }
+        .order-card:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+    <div class="bg-gray-900 text-white py-2 px-4 flex justify-end gap-4 text-sm font-bold">
+        <button onclick="toggleTextSize('reset')" aria-label="Reset text size">Reset Text</button>
+        <button onclick="toggleContrast()" class="bg-yellow-500 text-black px-2 rounded" aria-label="Toggle high contrast mode">High Contrast</button>
+        <button onclick="readPage()" class="bg-blue-500 text-white px-2 rounded" aria-label="Read this page aloud">🔊 Read Page</button>
+    </div>
+
+    <header class="bg-white shadow p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-[#208090] rounded-full flex items-center justify-center text-white text-xl font-bold">S</div>
+                <span class="text-2xl font-bold text-[#208090]">Senior Shop</span>
+            </a>
+            <nav class="flex gap-4" role="navigation">
+                <a href="index.html" class="text-[#208090] font-bold">Home</a>
+                <a href="shop.html" class="text-[#208090] font-bold">Shop</a>
+                <a href="cart.html" class="text-[#208090] font-bold">Cart</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 max-w-4xl flex-grow" role="main">
+        <h1 class="text-4xl font-bold mb-8 border-l-8 border-[#208090] pl-4">📦 Track Your Orders</h1>
+
+        <div class="bg-white rounded-lg shadow p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-4">Enter Order Details</h2>
+            <div class="space-y-4">
+                <div>
+                    <label for="order-id" class="block font-bold mb-2 text-lg">Order ID:</label>
+                    <input type="text" id="order-id" class="w-full p-3 border-2 border-gray-300 rounded-lg text-lg" placeholder="e.g., ORD-12345" aria-required="true">
+                </div>
+                <div>
+                    <label for="email" class="block font-bold mb-2 text-lg">Email Address:</label>
+                    <input type="email" id="email" class="w-full p-3 border-2 border-gray-300 rounded-lg text-lg" placeholder="your.email@example.com" aria-required="true">
+                </div>
+                <button onclick="trackOrder()" class="bg-[#208090] text-white px-8 py-3 rounded-lg font-bold text-xl hover:bg-[#165E6A] w-full">
+                    Track Order
+                </button>
+            </div>
+        </div>
+
+        <div id="order-results" class="hidden">
+            <h2 class="text-2xl font-bold mb-4">Your Orders</h2>
+            <div id="orders-list" class="space-y-4"></div>
+        </div>
+
+        <div class="bg-blue-50 rounded-lg p-6 mt-8">
+            <h2 class="text-2xl font-bold mb-4">ℹ️ Order Status Guide</h2>
+            <div class="space-y-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-4 h-4 bg-yellow-500 rounded-full"></div>
+                    <span class="text-lg"><strong>Processing:</strong> Your order is being prepared</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-4 h-4 bg-blue-500 rounded-full"></div>
+                    <span class="text-lg"><strong>Shipped:</strong> Your order is on the way</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-4 h-4 bg-green-500 rounded-full"></div>
+                    <span class="text-lg"><strong>Delivered:</strong> Your order has been delivered</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg mb-4">About Senior Shop</h3>
+                    <p class="text-gray-300">Your accessible shopping destination designed for seniors. Easy to use, clear interface, and full WCAG compliance.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white">Home</a></li>
+                        <li><a href="shop.html" class="text-gray-300 hover:text-white">Shop</a></li>
+                        <li><a href="order-tracking.html" class="text-gray-300 hover:text-white">Track Orders</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Accessibility</h3>
+                    <p class="text-gray-300">This site supports screen readers, keyboard navigation, and customizable text sizes.</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400">
+                <p>&copy; 2025 Senior Shop - IIT Madras Ideathon Project</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function trackOrder() {
+            const orderId = document.getElementById('order-id').value;
+            const email = document.getElementById('email').value;
+            
+            if (!orderId || !email) {
+                alert('Please enter both Order ID and Email Address');
+                return;
+            }
+            
+            // Simulate order tracking (demo data)
+            const demoOrders = [
+                { id: orderId, status: 'Shipped', date: new Date().toLocaleDateString(), items: 'Walking Cane, Blood Pressure Monitor', tracking: 'TRK' + Math.random().toString().substr(2, 8) },
+                { id: orderId, status: 'Processing', date: new Date().toLocaleDateString(), items: 'Medication Organizer', tracking: 'Processing' }
+            ];
+            
+            displayOrders(demoOrders);
+        }
+        
+        function displayOrders(orders) {
+            const resultsDiv = document.getElementById('order-results');
+            const ordersList = document.getElementById('orders-list');
+            
+            resultsDiv.classList.remove('hidden');
+            ordersList.innerHTML = '';
+            
+            orders.forEach(order => {
+                const statusColor = order.status === 'Delivered' ? 'green' : order.status === 'Shipped' ? 'blue' : 'yellow';
+                const orderCard = `
+                    <div class="order-card bg-white rounded-lg shadow p-6 border-l-4 border-${statusColor}-500">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold">Order #${order.id}</h3>
+                                <p class="text-gray-600">Placed on: ${order.date}</p>
+                            </div>
+                            <span class="bg-${statusColor}-100 text-${statusColor}-800 px-4 py-2 rounded-full font-bold">${order.status}</span>
+                        </div>
+                        <div class="space-y-2">
+                            <p class="text-lg"><strong>Items:</strong> ${order.items}</p>
+                            <p class="text-lg"><strong>Tracking Number:</strong> ${order.tracking}</p>
+                        </div>
+                    </div>
+                `;
+                ordersList.innerHTML += orderCard;
+            });
+        }
+        
+        // Check if there are recent orders in localStorage
+        window.onload = function() {
+            const recentOrders = localStorage.getItem('recentOrders');
+            if (recentOrders) {
+                const orders = JSON.parse(recentOrders);
+                if (orders.length > 0) {
+                    displayOrders(orders);
+                }
+            }
+        };
+    </script>
+</body>
+</html>
