@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - Easy Phones | Senior Shop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Source Sans 3', sans-serif; background: #F8FAFC; color: #1F2937; padding-bottom: 80px; }
+        *:focus-visible { outline: 4px solid #F59E0B !important; outline-offset: 2px; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+        .product-card { transition: all 0.3s ease; }
+    </style>
+</head>
+<body>
+    <header class="bg-white shadow p-4 sticky top-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-[#208090] rounded-full flex items-center justify-center text-white text-xl font-bold">S</div>
+                <span class="text-3xl font-bold text-[#208090]">Senior Shop</span>
+            </a>
+            <div class="flex gap-4 items-center">
+                <a href="index.html" class="text-[#208090] font-bold hover:underline">🏠 Home</a>
+                <a href="cart.html" class="bg-[#208090] text-white px-6 py-2 rounded-lg font-bold hover:bg-[#165E6A] flex items-center gap-2">
+                    🛒 Cart (<span class="cart-count">0</span>)
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <nav aria-label="Breadcrumb" class="mb-6">
+            <ol class="flex items-center gap-2 text-lg">
+                <li><a href="index.html" class="text-[#208090] hover:underline">Home</a></li>
+                <li aria-hidden="true">&gt;</li>
+                <li><a href="shop.html" class="text-[#208090] hover:underline">Easy Phones</a></li>
+                <li aria-hidden="true">&gt;</li>
+                <li aria-current="page" class="text-gray-600">Search Results</li>
+            </ol>
+        </nav>
+
+        <h1 class="text-4xl font-bold mb-2">Easy Phones for Seniors</h1>
+        <p class="text-xl text-gray-600 mb-8">Simple, large-button phones designed for easy use</p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Nokia 2780 Flip -->
+            <article class="product-card bg-white rounded-xl shadow-lg p-6 border-2 border-transparent hover:border-[#208090]">
+                <div class="bg-gray-100 rounded-lg p-8 mb-4 flex items-center justify-center" style="height: 200px;">
+                    <span class="text-7xl">📱</span>
+                </div>
+                <h2 class="text-2xl font-bold mb-2">Nokia 2780 Flip</h2>
+                <p class="text-gray-600 mb-4">Easy flip phone with large buttons and loud speaker</p>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl font-bold text-[#208090]">₹4,999</span>
+                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-bold">In Stock</span>
+                </div>
+                <a href="product-nokia-2780.html" class="block w-full bg-[#208090] text-white text-center py-3 rounded-lg font-bold text-xl hover:bg-[#165E6A]">View Details</a>
+            </article>
+
+            <!-- Jitterbug Flip2 -->
+            <article class="product-card bg-white rounded-xl shadow-lg p-6 border-2 border-transparent hover:border-[#208090]">
+                <div class="bg-gray-100 rounded-lg p-8 mb-4 flex items-center justify-center" style="height: 200px;">
+                    <span class="text-7xl">📞</span>
+                </div>
+                <h2 class="text-2xl font-bold mb-2">Jitterbug Flip2</h2>
+                <p class="text-gray-600 mb-4">Simple menu with large text and 5-star urgent response</p>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl font-bold text-[#208090]">₹5,999</span>
+                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-bold">In Stock</span>
+                </div>
+                <a href="#" class="block w-full bg-[#208090] text-white text-center py-3 rounded-lg font-bold text-xl hover:bg-[#165E6A]">View Details</a>
+            </article>
+
+            <!-- Doro 7050 -->
+            <article class="product-card bg-white rounded-xl shadow-lg p-6 border-2 border-transparent hover:border-[#208090]">
+                <div class="bg-gray-100 rounded-lg p-8 mb-4 flex items-center justify-center" style="height: 200px;">
+                    <span class="text-7xl">☎️</span>
+                </div>
+                <h2 class="text-2xl font-bold mb-2">Doro 7050</h2>
+                <p class="text-gray-600 mb-4">Flip phone with assistance button and hearing aid compatible</p>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl font-bold text-[#208090]">₹6,499</span>
+                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-bold">In Stock</span>
+                </div>
+                <a href="#" class="block w-full bg-[#208090] text-white text-center py-3 rounded-lg font-bold text-xl hover:bg-[#165E6A]">View Details</a>
+            </article>
+
+            <!-- Alcatel Go Flip 4 -->
+            <article class="product-card bg-white rounded-xl shadow-lg p-6 border-2 border-transparent hover:border-[#208090]">
+                <div class="bg-gray-100 rounded-lg p-8 mb-4 flex items-center justify-center" style="height: 200px;">
+                    <span class="text-7xl">📲</span>
+                </div>
+                <h2 class="text-2xl font-bold mb-2">Alcatel Go Flip 4</h2>
+                <p class="text-gray-600 mb-4">4G flip phone with WhatsApp and Google Assistant</p>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl font-bold text-[#208090]">₹3,999</span>
+                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-bold">In Stock</span>
+                </div>
+                <a href="#" class="block w-full bg-[#208090] text-white text-center py-3 rounded-lg font-bold text-xl hover:bg-[#165E6A]">View Details</a>
+            </article>
+
+            <!-- Lively Flip -->
+            <article class="product-card bg-white rounded-xl shadow-lg p-6 border-2 border-transparent hover:border-[#208090]">
+                <div class="bg-gray-100 rounded-lg p-8 mb-4 flex items-center justify-center" style="height: 200px;">
+                    <span class="text-7xl">🔊</span>
+                </div>
+                <h2 class="text-2xl font-bold mb-2">Lively Flip</h2>
+                <p class="text-gray-600 mb-4">Large buttons with health & safety services</p>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl font-bold text-[#208090]">₹5,499</span>
+                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-bold">In Stock</span>
+                </div>
+                <a href="#" class="block w-full bg-[#208090] text-white text-center py-3 rounded-lg font-bold text-xl hover:bg-[#165E6A]">View Details</a>
+            </article>
+
+            <!-- Snapfon ezFlip -->
+            <article class="product-card bg-white rounded-xl shadow-lg p-6 border-2 border-transparent hover:border-[#208090]">
+                <div class="bg-gray-100 rounded-lg p-8 mb-4 flex items-center justify-center" style="height: 200px;">
+                    <span class="text-7xl">📞</span>
+                </div>
+                <h2 class="text-2xl font-bold mb-2">Snapfon ezFlip</h2>
+                <p class="text-gray-600 mb-4">Hearing aid compatible with SOS button</p>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl font-bold text-[#208090]">₹4,499</span>
+                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-bold">In Stock</span>
+                </div>
+                <a href="#" class="block w-full bg-[#208090] text-white text-center py-3 rounded-lg font-bold text-xl hover:bg-[#165E6A]">View Details</a>
+            </article>
+        </div>
+    </main>
+
+    <nav class="fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t-4 border-[#208090] z-50" role="navigation" aria-label="Bottom Navigation">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-0">
+                <a href="index.html" class="flex flex-col items-center justify-center py-3 px-2 hover:bg-[#E0F2F1] transition-colors" aria-label="Go to Home">
+                    <span class="text-2xl mb-1" aria-hidden="true">🏠</span>
+                    <span class="text-xs font-bold text-gray-700">Home</span>
+                </a>
+                <button onclick="window.location.href='search-results.html'" class="flex flex-col items-center justify-center py-3 px-2 hover:bg-[#E0F2F1] transition-colors" aria-label="Quick Browse Categories">
+                    <span class="text-2xl mb-1" aria-hidden="true">🔍</span>
+                    <span class="text-xs font-bold text-gray-700">Browse</span>
+                </button>
+                <a href="cart.html" class="flex flex-col items-center justify-center py-3 px-2 hover:bg-[#E0F2F1] transition-colors relative" aria-label="View Cart">
+                    <span class="text-2xl mb-1" aria-hidden="true">🛒</span>
+                    <span class="text-xs font-bold text-gray-700">Cart</span>
+                    <span class="cart-count absolute top-1 right-4 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold" aria-live="polite">0</span>
+                </a>
+                <a href="#" onclick="alert('Help: Call us at 1-800-555-0199 or email help@seniorshop.com'); return false;" class="flex flex-col items-center justify-center py-3 px-2 hover:bg-[#E0F2F1] transition-colors" aria-label="Get Help and Support">
+                    <span class="text-2xl mb-1" aria-hidden="true">❓</span>
+                    <span class="text-xs font-bold text-gray-700">Help</span>
+                </a>
+                <a href="order-tracking.html" class="flex flex-col items-center justify-center py-3 px-2 hover:bg-[#E0F2F1] transition-colors" aria-label="Track Your Order">
+                    <span class="text-2xl mb-1" aria-hidden="true">📦</span>
+                    <span class="text-xs font-bold text-gray-700">Track</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
