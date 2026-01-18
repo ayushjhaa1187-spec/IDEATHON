@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Senior Shop - Empowered Living Ecosystem | Enable India Ideathon</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Source Sans 3', sans-serif; background: #F8FAFC; color: #1F2937; overflow-x: hidden; }
+    body.high-contrast { background: #000 !important; color: #FFD700 !important; }
+    body.high-contrast .bg-white { background: #000 !important; border: 2px solid #FFD700 !important; }
+    body.high-contrast .bg-gray-900, body.high-contrast .bg-gray-100, body.high-contrast .bg-gradient-to-r { background: #000 !important; color: #FFD700 !important; }
+    body.high-contrast a, body.high-contrast button { color: #FFD700 !important; }
+    body.high-contrast button { border: 2px solid #FFD700 !important; }
+    *:focus-visible { outline: 4px solid #F59E0B !important; outline-offset: 2px; }
+    .skip-link { position: absolute; top: -999px; left: 0; background: #208090; color: white; padding: 15px; z-index: 50; border-radius: 0 0 8px 0; }
+    .skip-link:focus { top: 0; }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideIn { from { transform: translateX(-50px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+    main { animation: fadeInUp 0.8s ease-out; }
+    .stat-counter { animation: slideIn 0.6s ease-out; }
+    button:hover { animation: pulse 0.6s ease-in-out; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0; }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen">
+  <a href="#main-content" class="skip-link">Skip to Main Content</a>
+  
+  <!-- Accessibility Toolbar -->
+  <div class="bg-gray-900 text-white py-3 px-4 flex justify-between items-center text-sm shadow-lg" role="region" aria-label="Accessibility Tools">
+    <span class="uppercase tracking-wider text-gray-400 font-bold">♿ Accessibility</span>
+    <div class="flex gap-3 flex-wrap">
+      <button onclick="toggleTextSize('small')" class="hover:text-yellow-400 px-3 py-1 border border-yellow-400 rounded transition" aria-label="Decrease text size" title="Make text smaller">A−</button>
+      <button onclick="toggleTextSize('reset')" class="hover:text-yellow-400 px-3 py-1 border border-yellow-400 rounded transition" aria-label="Reset text size" title="Reset text to default">Reset</button>
+      <button onclick="toggleTextSize('large')" class="hover:text-yellow-400 px-3 py-1 border border-yellow-400 rounded transition" aria-label="Increase text size" title="Make text larger">A+</button>
+      <button onclick="toggleContrast()" class="bg-yellow-500 text-black px-3 py-1 rounded hover:bg-yellow-400 font-bold transition" aria-label="Toggle high contrast mode" title="Switch to high contrast (Yellow on Black)">👁️ Contrast</button>
+      <button onclick="readPage()" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 transition font-bold" aria-label="Read page content aloud" title="Listen to page content">🔊 Read</button>
+      <button onclick="showHelp()" class="bg-orange-500 text-white px-3 py-1 rounded hover:bg-orange-600 transition font-bold" aria-label="Show help and keyboard shortcuts" title="Get help">❓ Help</button>
+    </div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="bg-white shadow sticky top-0 z-40 py-4">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center flex-wrap gap-4">
+        <a href="home-redesigned.html" class="flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#FF9500]" title="Go to homepage">
+          <div class="w-12 h-12 bg-gradient-to-br from-[#FF9500] to-[#208090] rounded-full flex items-center justify-center text-white text-2xl font-bold">S</div>
+          <span class="text-2xl font-bold text-gray-900">Senior <span class="text-[#FF9500]">Hub</span></span>
+        </a>
+        <nav class="flex gap-6 items-center flex-wrap">
+          <a href="#programs" class="text-gray-900 font-bold hover:text-[#FF9500] transition" title="Jump to programs">Programs</a>
+          <a href="#wellness" class="text-gray-900 font-bold hover:text-[#FF9500] transition" title="Jump to wellness">Wellness</a>
+          <a href="#learn" class="text-gray-900 font-bold hover:text-[#FF9500] transition" title="Jump to learning">Learn</a>
+          <button onclick="alert('Support: Call 1-800-SENIOR-1 or email help@seniorhub.com')" class="text-[#FF9500] font-bold hover:underline" aria-label="Contact support">📞 Support</button>
+          <button onclick="alert('Login feature coming soon!')" class="bg-[#208090] text-white px-4 py-2 rounded font-bold hover:bg-[#165E6A]" aria-label="Login to your account">👤 Login</button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="flex-grow">
+    <!-- Hero Section with Stats -->
+    <section class="bg-gradient-to-r from-[#FF9500] to-[#FF7200] py-20 text-white text-center">
+      <div class="container mx-auto px-4">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6">Empowered Living for Seniors</h1>
+        <p class="text-xl md:text-2xl mb-10 font-light">Your complete wellness, community & support ecosystem</p>
+        
+        <!-- Search Bar -->
+        <div class="max-w-2xl mx-auto mb-12 flex gap-0 shadow-lg rounded-full overflow-hidden">
+          <input type="text" id="search-input" placeholder="Search wellness programs..." class="w-full px-6 py-4 text-lg text-gray-900 focus:outline-none" aria-label="Main search bar for programs and products">
+          <button onclick="performSearch()" class="bg-[#208090] text-white px-8 py-4 font-bold hover:bg-[#165E6A] transition" aria-label="Search" title="Click to search">🔍 Search</button>
+        </div>
+
+        <!-- Stat Counters -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+          <div class="stat-counter bg-white bg-opacity-20 p-8 rounded-lg backdrop-blur-sm hover:bg-opacity-30 transition">
+            <div class="text-5xl font-bold">675K+</div>
+            <div class="text-lg mt-2 font-semibold">Active Seniors</div>
+          </div>
+          <div class="stat-counter bg-white bg-opacity-20 p-8 rounded-lg backdrop-blur-sm hover:bg-opacity-30 transition">
+            <div class="text-5xl font-bold">12.5K</div>
+            <div class="text-lg mt-2 font-semibold">Wellness Programs</div>
+          </div>
+          <div class="stat-counter bg-white bg-opacity-20 p-8 rounded-lg backdrop-blur-sm hover:bg-opacity-30 transition">
+            <div class="text-5xl font-bold">98%</div>
+            <div class="text-lg mt-2 font-semibold">Satisfaction Rate</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scroll Anchor Navigation (Startup India Pattern) -->
+    <section class="bg-gray-100 py-6 sticky top-20 z-30 shadow-md" role="navigation" aria-label="Quick jump navigation">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-wrap justify-center gap-3 md:gap-4">
+          <a href="#shop" class="px-6 py-2 bg-white rounded-full shadow hover:shadow-lg transition font-bold text-gray-900 hover:text-[#FF9500]" title="Jump to Shop section">🛒 Shop</a>
+          <a href="#wellness" class="px-6 py-2 bg-white rounded-full shadow hover:shadow-lg transition font-bold text-gray-900 hover:text-[#FF9500]" title="Jump to Wellness section">✓ Wellness</a>
+          <a href="#programs" class="px-6 py-2 bg-white rounded-full shadow hover:shadow-lg transition font-bold text-gray-900 hover:text-[#FF9500]" title="Jump to Programs section">💰 Programs</a>
+          <a href="#learn" class="px-6 py-2 bg-white rounded-full shadow hover:shadow-lg transition font-bold text-gray-900 hover:text-[#FF9500]" title="Jump to Learning section">📚 Learn</a>
+          <a href="#network" class="px-6 py-2 bg-white rounded-full shadow hover:shadow-lg transition font-bold text-gray-900 hover:text-[#FF9500]" title="Jump to Network section">🤝 Network</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Senior Wellness Recognition Section (Inspired by DPIIT Recognition) -->
+    <section id="wellness" class="py-20 container mx-auto px-4">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-900">🏆 Senior Wellness Recognition</h2>
+      <p class="text-xl text-center text-gray-600 mb-16 max-w-2xl mx-auto">Get your personal wellness badge & unlock exclusive community benefits, discounts & support programs</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <!-- Check Eligibility Card -->
+        <div class="bg-white p-8 rounded-xl shadow-lg border-l-4 border-[#FF9500] hover:shadow-2xl transition transform hover:-translate-y-2">
+          <div class="text-6xl mb-6">✓</div>
+          <h3 class="text-2xl md:text-3xl font-bold mb-4 text-gray-900">Check Your Eligibility</h3>
+          <p class="text-gray-600 mb-8 text-lg">Discover which wellness programs and benefits you qualify for based on your health profile and location.</p>
+          <button onclick="goToPage('eligibility.html')" class="w-full bg-[#FF9500] text-white px-6 py-4 rounded-lg font-bold hover:bg-[#FF7200] transition text-lg" aria-label="Start eligibility assessment">
+            Start Assessment →
+          </button>
+        </div>
+
+        <!-- Get Recognized Card -->
+        <div class="bg-white p-8 rounded-xl shadow-lg border-l-4 border-[#208090] hover:shadow-2xl transition transform hover:-translate-y-2">
+          <div class="text-6xl mb-6">🏅</div>
+          <h3 class="text-2xl md:text-3xl font-bold mb-4 text-gray-900">Get Recognized</h3>
+          <p class="text-gray-600 mb-8 text-lg">Earn your digital wellness badge and unlock exclusive access to community, discounts & senior support programs.</p>
+          <button onclick="goToPage('recognition.html')" class="w-full bg-[#208090] text-white px-6 py-4 rounded-lg font-bold hover:bg-[#165E6A] transition text-lg" aria-label="Apply for wellness recognition">
+            Apply Now →
+          </button>
+        </div>
+      </div>
+
+      <!-- Benefits Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="bg-gradient-to-br from-[#E0F2F1] to-[#B2DFDB] p-8 rounded-lg text-center shadow-md hover:shadow-lg transition" title="View your wellness score">
+          <div class="text-5xl mb-3">⭐</div>
+          <div class="font-bold text-gray-900 text-lg">Wellness Score</div>
+        </div>
+        <div class="bg-gradient-to-br from-[#FFF3E0] to-[#FFE0B2] p-8 rounded-lg text-center shadow-md hover:shadow-lg transition" title="Get special discounts">
+          <div class="text-5xl mb-3">💳</div>
+          <div class="font-bold text-gray-900 text-lg">Discounts</div>
+        </div>
+        <div class="bg-gradient-to-br from-[#E8F5E9] to-[#C8E6C9] p-8 rounded-lg text-center shadow-md hover:shadow-lg transition" title="Connect with community">
+          <div class="text-5xl mb-3">👥
